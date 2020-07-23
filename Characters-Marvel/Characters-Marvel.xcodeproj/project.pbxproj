@@ -13,6 +13,7 @@
 		DE1B7BA824CA084D00D87719 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE1B7BA624CA084D00D87719 /* LaunchScreen.storyboard */; };
 		DE1B7BB124CA089300D87719 /* CharactersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BAF24CA089300D87719 /* CharactersViewController.swift */; };
 		DE1B7BB224CA089300D87719 /* CharactersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1B7BB024CA089300D87719 /* CharactersViewController.xib */; };
+		DE1B7BB924CA0FAB00D87719 /* UIimageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BB824CA0FAB00D87719 /* UIimageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		DE1B7BA924CA084D00D87719 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE1B7BAF24CA089300D87719 /* CharactersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewController.swift; sourceTree = "<group>"; };
 		DE1B7BB024CA089300D87719 /* CharactersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersViewController.xib; sourceTree = "<group>"; };
+		DE1B7BB824CA0FAB00D87719 /* UIimageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIimageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		DE1B7BB624CA0B8C00D87719 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DE1B7BB824CA0FAB00D87719 /* UIimageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE1B7BB924CA0FAB00D87719 /* UIimageView.swift in Sources */,
 				DE1B7B9C24CA084A00D87719 /* AppDelegate.swift in Sources */,
 				DE1B7B9E24CA084A00D87719 /* SceneDelegate.swift in Sources */,
 				DE1B7BB124CA089300D87719 /* CharactersViewController.swift in Sources */,
