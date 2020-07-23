@@ -56,15 +56,55 @@
 		DE1B7B9A24CA084A00D87719 /* Characters-Marvel */ = {
 			isa = PBXGroup;
 			children = (
+				DE1B7BB724CA0BCE00D87719 /* Components */,
+				DE1B7BB624CA0B8C00D87719 /* Extensions */,
+				DE1B7BB524CA0B7900D87719 /* Entities */,
+				DE1B7BB424CA0B6600D87719 /* API */,
+				DE1B7BB324CA0B4900D87719 /* Scenes */,
 				DE1B7B9B24CA084A00D87719 /* AppDelegate.swift */,
 				DE1B7B9D24CA084A00D87719 /* SceneDelegate.swift */,
 				DE1B7BA424CA084D00D87719 /* Assets.xcassets */,
 				DE1B7BA624CA084D00D87719 /* LaunchScreen.storyboard */,
 				DE1B7BA924CA084D00D87719 /* Info.plist */,
+			);
+			path = "Characters-Marvel";
+			sourceTree = "<group>";
+		};
+		DE1B7BB324CA0B4900D87719 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
 				DE1B7BAF24CA089300D87719 /* CharactersViewController.swift */,
 				DE1B7BB024CA089300D87719 /* CharactersViewController.xib */,
 			);
-			path = "Characters-Marvel";
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		DE1B7BB424CA0B6600D87719 /* API */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		DE1B7BB524CA0B7900D87719 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		DE1B7BB624CA0B8C00D87719 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DE1B7BB724CA0BCE00D87719 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
