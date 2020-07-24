@@ -20,6 +20,7 @@
 		DE1B7BC124CA133B00D87719 /* CryptoKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC024CA133B00D87719 /* CryptoKeys.swift */; };
 		DE1B7BC424CA13AF00D87719 /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC324CA13AF00D87719 /* CharactersService.swift */; };
 		DE1B7BC624CA144800D87719 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC524CA144800D87719 /* CharacterModel.swift */; };
+		DE1B7BCA24CB55AE00D87719 /* CharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC924CB55AE00D87719 /* CharactersPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DE1B7BC024CA133B00D87719 /* CryptoKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKeys.swift; sourceTree = "<group>"; };
 		DE1B7BC324CA13AF00D87719 /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
 		DE1B7BC524CA144800D87719 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		DE1B7BC924CB55AE00D87719 /* CharactersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		DE1B7BB324CA0B4900D87719 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				DE1B7BC924CB55AE00D87719 /* CharactersPresenter.swift */,
 				DE1B7BAF24CA089300D87719 /* CharactersViewController.swift */,
 				DE1B7BB024CA089300D87719 /* CharactersViewController.xib */,
 			);
@@ -214,6 +217,7 @@
 				DE1B7BB924CA0FAB00D87719 /* UIimageView.swift in Sources */,
 				DE1B7B9C24CA084A00D87719 /* AppDelegate.swift in Sources */,
 				DE1B7B9E24CA084A00D87719 /* SceneDelegate.swift in Sources */,
+				DE1B7BCA24CB55AE00D87719 /* CharactersPresenter.swift in Sources */,
 				DE1B7BBB24CA11C500D87719 /* ApiRequest.swift in Sources */,
 				DE1B7BC424CA13AF00D87719 /* CharactersService.swift in Sources */,
 				DE1B7BB124CA089300D87719 /* CharactersViewController.swift in Sources */,
