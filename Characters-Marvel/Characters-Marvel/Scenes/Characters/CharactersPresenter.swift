@@ -13,13 +13,14 @@ protocol CharactersPresenterDelegate: AnyObject {
     func reloadData()
     func showLoading()
     func hideLoading()
-    func setTitle(_ text: String)
+    func setNavigationTitle(_ text: String)
 }
 
 final class CharactersPresenter: NSObject {
     
     var dataSource: [Character] = []
-    private weak var view: CharactersPresenterDelegate?
+    
+    weak var view: CharactersPresenterDelegate?
     private var service: CharactersServiceProtocol
     
     init(
@@ -33,9 +34,11 @@ final class CharactersPresenter: NSObject {
     
     func attachView(_ view: CharactersPresenterDelegate) {
         self.view = view
-        view.setTitle("key do titulo")
-        
-        service.charactersSearch()
+        view.setNavigationTitle(Localizable.welcomePage.title.rawValue)
+        service.fetchCharacters()
+    }
+    
+    func inputTextDidChange(_ text: String) {
     }
     
     func rowDidTap(_ row: Int) {
@@ -53,8 +56,9 @@ extension CharactersPresenter: CharactersServiceDelegate {
     func didFail(error: Error) {
         view?.hideLoading()
         view?.showAlert(
-            message: "Fazer ENUM de erros",
-            buttonTitle: "Tente Novamente",
-            title: "Enum de erros")
+            message: Localizable.inAppError.generic.rawValue,
+            buttonTitle: Localizable.inAppError.button.rawValue,
+            title: Localizable.inAppError.title.rawValue
+        )
     }
 }
