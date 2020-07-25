@@ -14,6 +14,7 @@ class CharactersViewController: UIViewController {
     
     private let presenter: CharactersPresenter
     private let searchController = UISearchController(searchResultsController: nil)
+    private let spinner = SpinnerController()
     
     init(presenter: CharactersPresenter) {
         self.presenter = presenter
@@ -78,6 +79,18 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
+extension CharactersViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        if offsetY / contentHeight > 0.6 && !presenter.isFetching {
+            presenter.userDidRequestedMoreCharacters()
+        }
+    }    
+}
+
 extension CharactersViewController: CharactersPresenterDelegate {
     func showAlert(message: String, buttonTitle: String, title: String) {
         
@@ -90,11 +103,18 @@ extension CharactersViewController: CharactersPresenterDelegate {
     }
     
     func showLoading() {
-        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.spinner.show()
+            self.addChild(self.spinner)
+            self.view.addSubview(self.spinner.view)
+        }
     }
     
     func hideLoading() {
-        
+        DispatchQueue.main.async { [weak self] in
+            self?.spinner.hide()
+        }
     }
     
     func setNavigationTitle(_ text: String) {
