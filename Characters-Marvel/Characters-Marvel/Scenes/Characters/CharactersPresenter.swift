@@ -22,14 +22,18 @@ final class CharactersPresenter: NSObject {
     
     weak var view: CharactersPresenterDelegate?
     private var service: CharactersServiceProtocol
+    private var serchByNameService: SearchByNameServiceProtocol
     
     init(
-        service: CharactersServiceProtocol = CharactersService()
+        service: CharactersServiceProtocol = CharactersService(),
+        serchByNameService:SearchByNameServiceProtocol = SearchByNameService()
     ) {
         self.service = service
+        self.serchByNameService = serchByNameService
         super.init()
         
         self.service.delegate = self
+        self.serchByNameService.delegate = self
     }
     
     func attachView(_ view: CharactersPresenterDelegate) {
@@ -39,6 +43,13 @@ final class CharactersPresenter: NSObject {
     }
     
     func inputTextDidChange(_ text: String) {
+        let characterCount = text.count
+        if characterCount  > 2 {
+            let inputText = text
+            serchByNameService.fetchCharactersByName(query: inputText)
+        } else {
+            service.fetchCharacters()
+        }
     }
     
     func rowDidTap(_ row: Int) {

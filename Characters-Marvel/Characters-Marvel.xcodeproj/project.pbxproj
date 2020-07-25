@@ -26,6 +26,7 @@
 		DE1B7BD124CB678900D87719 /* CharactersViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1B7BCF24CB678900D87719 /* CharactersViewCell.xib */; };
 		DE1B7BD424CB6C9500D87719 /* CharactersViewCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BD324CB6C9500D87719 /* CharactersViewCellPresenter.swift */; };
 		DE1B7BD624CB826500D87719 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BD524CB826500D87719 /* Localizable.swift */; };
+		DE1B7BE124CC016100D87719 /* SearchByNameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BE024CC016100D87719 /* SearchByNameService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		DE1B7BCF24CB678900D87719 /* CharactersViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersViewCell.xib; sourceTree = "<group>"; };
 		DE1B7BD324CB6C9500D87719 /* CharactersViewCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewCellPresenter.swift; sourceTree = "<group>"; };
 		DE1B7BD524CB826500D87719 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		DE1B7BE024CC016100D87719 /* SearchByNameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByNameService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				DE1B7BC324CA13AF00D87719 /* CharactersService.swift */,
+				DE1B7BE024CC016100D87719 /* SearchByNameService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				DE1B7BBF24CA12F400D87719 /* Path.swift in Sources */,
 				DE1B7BB924CA0FAB00D87719 /* UIimageView.swift in Sources */,
 				DE1B7B9C24CA084A00D87719 /* AppDelegate.swift in Sources */,
+				DE1B7BE124CC016100D87719 /* SearchByNameService.swift in Sources */,
 				DE1B7B9E24CA084A00D87719 /* SceneDelegate.swift in Sources */,
 				DE1B7BD424CB6C9500D87719 /* CharactersViewCellPresenter.swift in Sources */,
 				DE1B7BCA24CB55AE00D87719 /* CharactersPresenter.swift in Sources */,
