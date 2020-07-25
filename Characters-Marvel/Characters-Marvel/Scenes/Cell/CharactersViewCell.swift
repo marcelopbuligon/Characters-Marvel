@@ -42,6 +42,12 @@ class CharactersViewCell: UITableViewCell {
         containerView?.layer.shadowOffset = CGSize(width: 5, height: 5)
         containerView?.layer.shadowOpacity = 0.3
         containerView?.layer.shadowRadius = 5
+        
+        containerView?.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMinXMinYCorner]
+        charactereImage?.layer.maskedCorners = [.layerMinXMinYCorner]
+
+        charactereImage?.layer.cornerRadius = 30
+        containerView?.layer.cornerRadius = 30
     }
 }
 
