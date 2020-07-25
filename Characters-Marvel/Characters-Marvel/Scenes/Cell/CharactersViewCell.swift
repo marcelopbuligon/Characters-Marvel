@@ -24,7 +24,6 @@ class CharactersViewCell: UITableViewCell {
         selectionStyle = .none
         setupContainerView()
         arrowImage?.image = UIImage(systemName: "arrow.right")
-        //charactereImage?.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner, .layerMinXMaxYCorner, .layerMinXMinYCorner]
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,12 +39,6 @@ class CharactersViewCell: UITableViewCell {
     }
     
     private func setupContainerView() {
-        
-        //charactereImage?.layer.cornerRadius = 15
-        //charactereImage?.clipsToBounds = true
-
-        //containerView?.layer.borderWidth = 0.5
-        //containerView?.layer.cornerRadius = 15
         containerView?.layer.shadowOffset = CGSize(width: 5, height: 5)
         containerView?.layer.shadowOpacity = 0.3
         containerView?.layer.shadowRadius = 5

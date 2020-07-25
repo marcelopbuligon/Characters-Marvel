@@ -21,4 +21,3 @@ enum Localizable {
         case noDescription = "There is no description for this character yet."
     }
 }
-

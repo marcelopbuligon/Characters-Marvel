@@ -10,7 +10,7 @@ import Foundation
 
 protocol CharactersServiceProtocol: AnyObject {
     var delegate: CharactersServiceDelegate? { get set }
-    func charactersSearch()
+    func fetchCharacters()
 }
 
 final class CharactersService: CharactersServiceProtocol {
@@ -31,7 +31,7 @@ final class CharactersService: CharactersServiceProtocol {
         self.apiRequester = apiRequester
     }
     
-    func charactersSearch() {
+    func fetchCharacters() {
         
         var components = URLComponents()
         components.scheme = "https"
@@ -51,7 +51,6 @@ final class CharactersService: CharactersServiceProtocol {
             parameters: nil,
             success: { [weak self] (response: Response) in
                 self?.delegate?.didFindCharacters(response.data?.results ?? [])
-                print(response.data?.results?[0] ?? "veio")
         }) { [delegate] (error) in
             delegate?.didFail(error: error)
         }

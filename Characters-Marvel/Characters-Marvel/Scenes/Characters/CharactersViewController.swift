@@ -100,6 +100,4 @@ extension CharactersViewController: CharactersPresenterDelegate {
     func setNavigationTitle(_ text: String) {
         navigationItem.title = text
     }
-    
-    
 }

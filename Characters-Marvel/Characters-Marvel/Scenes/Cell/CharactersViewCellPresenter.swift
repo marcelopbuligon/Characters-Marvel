@@ -44,7 +44,6 @@ final class CharactersViewCellPresenter {
         
         if let path = model.thumbnail?.path, let imgExtension = model.thumbnail?.imageExtension {
            imgUrl = path + "/portrait_uncanny" + "." + imgExtension
-            print(imgUrl)
         }
         view?.setupImage(imageUrl: imgUrl)
     }

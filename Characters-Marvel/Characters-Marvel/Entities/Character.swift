@@ -22,7 +22,7 @@ struct Character: Decodable {
 struct ThumbNail: Decodable {
     var path: String?
     var imageExtension: String
-
+    
     enum CodingKeys: String, CodingKey {
         case path
         case imageExtension = "extension"
