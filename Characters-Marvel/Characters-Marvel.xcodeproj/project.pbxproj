@@ -27,6 +27,7 @@
 		DE1B7BD424CB6C9500D87719 /* CharactersViewCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BD324CB6C9500D87719 /* CharactersViewCellPresenter.swift */; };
 		DE1B7BD624CB826500D87719 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BD524CB826500D87719 /* Localizable.swift */; };
 		DE1B7BE124CC016100D87719 /* SearchByNameService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BE024CC016100D87719 /* SearchByNameService.swift */; };
+		DE1B7BE324CC8CE400D87719 /* SpinnerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BE224CC8CE400D87719 /* SpinnerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		DE1B7BD324CB6C9500D87719 /* CharactersViewCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewCellPresenter.swift; sourceTree = "<group>"; };
 		DE1B7BD524CB826500D87719 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		DE1B7BE024CC016100D87719 /* SearchByNameService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchByNameService.swift; sourceTree = "<group>"; };
+		DE1B7BE224CC8CE400D87719 /* SpinnerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +141,7 @@
 		DE1B7BB724CA0BCE00D87719 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				DE1B7BE224CC8CE400D87719 /* SpinnerController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				DE1B7BD424CB6C9500D87719 /* CharactersViewCellPresenter.swift in Sources */,
 				DE1B7BCA24CB55AE00D87719 /* CharactersPresenter.swift in Sources */,
 				DE1B7BBB24CA11C500D87719 /* ApiRequest.swift in Sources */,
+				DE1B7BE324CC8CE400D87719 /* SpinnerController.swift in Sources */,
 				DE1B7BD624CB826500D87719 /* Localizable.swift in Sources */,
 				DE1B7BC424CA13AF00D87719 /* CharactersService.swift in Sources */,
 				DE1B7BCC24CB633800D87719 /* CharactersRouter.swift in Sources */,

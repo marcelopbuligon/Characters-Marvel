@@ -21,9 +21,11 @@ final class CharactersPresenter: NSObject {
     var dataSource: [Character] = []
     
     weak var view: CharactersPresenterDelegate?
+    var isFetching: Bool = false
+    private var offset: Int = 0
     private var service: CharactersServiceProtocol
     private var serchByNameService: SearchByNameServiceProtocol
-    
+
     init(
         service: CharactersServiceProtocol = CharactersService(),
         serchByNameService:SearchByNameServiceProtocol = SearchByNameService()
@@ -39,33 +41,54 @@ final class CharactersPresenter: NSObject {
     func attachView(_ view: CharactersPresenterDelegate) {
         self.view = view
         view.setNavigationTitle(Localizable.welcomePage.title.rawValue)
-        service.fetchCharacters()
+        fetchCharacters()
     }
     
     func inputTextDidChange(_ text: String) {
         let characterCount = text.count
-        if characterCount  > 2 {
+        if characterCount  > 1 {
             let inputText = text
             serchByNameService.fetchCharactersByName(query: inputText)
+            view?.showLoading()
+        } else if characterCount == 0 {
+            self.fetchCharacters()
         } else {
-            service.fetchCharacters()
+            clearTableView()
         }
     }
     
     func rowDidTap(_ row: Int) {
         let model = dataSource[row]
     }
+    
+    func userDidRequestedMoreCharacters() {
+        fetchCharacters()
+    }
+    
+    private func clearTableView() {
+        dataSource.removeAll()
+        view?.reloadData()
+    }
+    
+    private func fetchCharacters() {
+        service.fetchCharacters(offset: "\(offset)")
+        view?.showLoading()
+        isFetching = true
+        offset += 3
+    }
 }
 
 extension CharactersPresenter: CharactersServiceDelegate {
     func didFindCharacters(_ response: [Character]) {
          dataSource = response
-         view?.showLoading()
+         isFetching = false
+         view?.hideLoading()
          view?.reloadData()
     }
     
     func didFail(error: Error) {
         view?.hideLoading()
+        isFetching = false
         view?.showAlert(
             message: Localizable.inAppError.generic.rawValue,
             buttonTitle: Localizable.inAppError.button.rawValue,

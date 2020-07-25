@@ -10,7 +10,7 @@ import Foundation
 
 protocol CharactersServiceProtocol: AnyObject {
     var delegate: CharactersServiceDelegate? { get set }
-    func fetchCharacters()
+    func fetchCharacters(offset: String)
 }
 
 final class CharactersService: CharactersServiceProtocol {
@@ -31,7 +31,7 @@ final class CharactersService: CharactersServiceProtocol {
         self.apiRequester = apiRequester
     }
     
-    func fetchCharacters() {
+    func fetchCharacters(offset: String) {
         
         var components = URLComponents()
         components.scheme = "https"
@@ -40,7 +40,9 @@ final class CharactersService: CharactersServiceProtocol {
         components.queryItems = [
             URLQueryItem(name: "apikey", value: AppKeys.publicKey),
             URLQueryItem(name: "hash", value: AppKeys.hash),
-            URLQueryItem(name: "ts", value: AppKeys.timeStamp)
+            URLQueryItem(name: "ts", value: AppKeys.timeStamp),
+            URLQueryItem(name: "limit", value: "20"),
+            URLQueryItem(name: "offset", value: offset)
         ]
         
         guard let urlString = components.url?.absoluteString else { return }
