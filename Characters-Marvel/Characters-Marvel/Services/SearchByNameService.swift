@@ -1,19 +1,19 @@
 //
-//  CharactersService.swift
+//  SearchByNameService.swift
 //  Characters-Marvel
 //
-//  Created by Marcelo Pagliarini Buligon on 23/07/20.
+//  Created by Marcelo Pagliarini Buligon on 25/07/20.
 //  Copyright © 2020 Marcelo Pagliarini Buligon. All rights reserved.
 //
 
 import Foundation
 
-protocol CharactersServiceProtocol: AnyObject {
+protocol SearchByNameServiceProtocol: AnyObject {
     var delegate: CharactersServiceDelegate? { get set }
-    func fetchCharacters(offset: String)
+    func fetchCharactersByName(query: String)
 }
 
-final class CharactersService: CharactersServiceProtocol {
+final class SearchByNameService: SearchByNameServiceProtocol {
     
     struct Response: Decodable {
         var data: DataStruct?
@@ -31,18 +31,17 @@ final class CharactersService: CharactersServiceProtocol {
         self.apiRequester = apiRequester
     }
     
-    func fetchCharacters(offset: String) {
+    func fetchCharactersByName(query: String) {
         
         var components = URLComponents()
         components.scheme = "https"
         components.host = AppURL.base
         components.path = AppURL.charactersPath
         components.queryItems = [
+            URLQueryItem(name: "nameStartsWith", value: query),
             URLQueryItem(name: "apikey", value: AppKeys.publicKey),
             URLQueryItem(name: "hash", value: AppKeys.hash),
-            URLQueryItem(name: "ts", value: AppKeys.timeStamp),
-            URLQueryItem(name: "limit", value: "20"),
-            URLQueryItem(name: "offset", value: offset)
+            URLQueryItem(name: "ts", value: AppKeys.timeStamp)
         ]
         
         guard let urlString = components.url?.absoluteString else { return }

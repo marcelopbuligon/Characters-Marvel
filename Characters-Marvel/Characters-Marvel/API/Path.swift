@@ -9,4 +9,5 @@
 enum AppURL {
     static let base = "gateway.marvel.com"
     static let charactersPath = "/v1/public/characters"
+    static let nameSearch = "nameStartsWith="
 }
