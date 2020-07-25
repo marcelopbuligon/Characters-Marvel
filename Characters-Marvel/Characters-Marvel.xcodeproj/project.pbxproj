@@ -19,8 +19,13 @@
 		DE1B7BBF24CA12F400D87719 /* Path.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BBE24CA12F400D87719 /* Path.swift */; };
 		DE1B7BC124CA133B00D87719 /* CryptoKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC024CA133B00D87719 /* CryptoKeys.swift */; };
 		DE1B7BC424CA13AF00D87719 /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC324CA13AF00D87719 /* CharactersService.swift */; };
-		DE1B7BC624CA144800D87719 /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC524CA144800D87719 /* CharacterModel.swift */; };
+		DE1B7BC624CA144800D87719 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC524CA144800D87719 /* Character.swift */; };
 		DE1B7BCA24CB55AE00D87719 /* CharactersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC924CB55AE00D87719 /* CharactersPresenter.swift */; };
+		DE1B7BCC24CB633800D87719 /* CharactersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BCB24CB633800D87719 /* CharactersRouter.swift */; };
+		DE1B7BD024CB678900D87719 /* CharactersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BCE24CB678900D87719 /* CharactersViewCell.swift */; };
+		DE1B7BD124CB678900D87719 /* CharactersViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1B7BCF24CB678900D87719 /* CharactersViewCell.xib */; };
+		DE1B7BD424CB6C9500D87719 /* CharactersViewCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BD324CB6C9500D87719 /* CharactersViewCellPresenter.swift */; };
+		DE1B7BD624CB826500D87719 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BD524CB826500D87719 /* Localizable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +43,13 @@
 		DE1B7BBE24CA12F400D87719 /* Path.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Path.swift; sourceTree = "<group>"; };
 		DE1B7BC024CA133B00D87719 /* CryptoKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoKeys.swift; sourceTree = "<group>"; };
 		DE1B7BC324CA13AF00D87719 /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
-		DE1B7BC524CA144800D87719 /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
+		DE1B7BC524CA144800D87719 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		DE1B7BC924CB55AE00D87719 /* CharactersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersPresenter.swift; sourceTree = "<group>"; };
+		DE1B7BCB24CB633800D87719 /* CharactersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRouter.swift; sourceTree = "<group>"; };
+		DE1B7BCE24CB678900D87719 /* CharactersViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewCell.swift; sourceTree = "<group>"; };
+		DE1B7BCF24CB678900D87719 /* CharactersViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersViewCell.xib; sourceTree = "<group>"; };
+		DE1B7BD324CB6C9500D87719 /* CharactersViewCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewCellPresenter.swift; sourceTree = "<group>"; };
+		DE1B7BD524CB826500D87719 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +100,9 @@
 		DE1B7BB324CA0B4900D87719 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				DE1B7BC924CB55AE00D87719 /* CharactersPresenter.swift */,
-				DE1B7BAF24CA089300D87719 /* CharactersViewController.swift */,
-				DE1B7BB024CA089300D87719 /* CharactersViewController.xib */,
+				DE1B7BD524CB826500D87719 /* Localizable.swift */,
+				DE1B7BCD24CB676300D87719 /* Characters */,
+				DE1B7BD224CB67A100D87719 /* Cell */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -111,7 +121,7 @@
 		DE1B7BB524CA0B7900D87719 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				DE1B7BC524CA144800D87719 /* CharacterModel.swift */,
+				DE1B7BC524CA144800D87719 /* Character.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -137,6 +147,27 @@
 				DE1B7BC324CA13AF00D87719 /* CharactersService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		DE1B7BCD24CB676300D87719 /* Characters */ = {
+			isa = PBXGroup;
+			children = (
+				DE1B7BC924CB55AE00D87719 /* CharactersPresenter.swift */,
+				DE1B7BAF24CA089300D87719 /* CharactersViewController.swift */,
+				DE1B7BB024CA089300D87719 /* CharactersViewController.xib */,
+				DE1B7BCB24CB633800D87719 /* CharactersRouter.swift */,
+			);
+			path = Characters;
+			sourceTree = "<group>";
+		};
+		DE1B7BD224CB67A100D87719 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DE1B7BD324CB6C9500D87719 /* CharactersViewCellPresenter.swift */,
+				DE1B7BCE24CB678900D87719 /* CharactersViewCell.swift */,
+				DE1B7BCF24CB678900D87719 /* CharactersViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE1B7BB224CA089300D87719 /* CharactersViewController.xib in Resources */,
+				DE1B7BD124CB678900D87719 /* CharactersViewCell.xib in Resources */,
 				DE1B7BA824CA084D00D87719 /* LaunchScreen.storyboard in Resources */,
 				DE1B7BA524CA084D00D87719 /* Assets.xcassets in Resources */,
 			);
@@ -210,16 +242,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE1B7BD024CB678900D87719 /* CharactersViewCell.swift in Sources */,
 				DE1B7BC124CA133B00D87719 /* CryptoKeys.swift in Sources */,
-				DE1B7BC624CA144800D87719 /* CharacterModel.swift in Sources */,
+				DE1B7BC624CA144800D87719 /* Character.swift in Sources */,
 				DE1B7BBD24CA11F200D87719 /* ApiLogger.swift in Sources */,
 				DE1B7BBF24CA12F400D87719 /* Path.swift in Sources */,
 				DE1B7BB924CA0FAB00D87719 /* UIimageView.swift in Sources */,
 				DE1B7B9C24CA084A00D87719 /* AppDelegate.swift in Sources */,
 				DE1B7B9E24CA084A00D87719 /* SceneDelegate.swift in Sources */,
+				DE1B7BD424CB6C9500D87719 /* CharactersViewCellPresenter.swift in Sources */,
 				DE1B7BCA24CB55AE00D87719 /* CharactersPresenter.swift in Sources */,
 				DE1B7BBB24CA11C500D87719 /* ApiRequest.swift in Sources */,
+				DE1B7BD624CB826500D87719 /* Localizable.swift in Sources */,
 				DE1B7BC424CA13AF00D87719 /* CharactersService.swift in Sources */,
+				DE1B7BCC24CB633800D87719 /* CharactersRouter.swift in Sources */,
 				DE1B7BB124CA089300D87719 /* CharactersViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
