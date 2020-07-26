@@ -1,39 +1,43 @@
 //
-//  CellPresenter.swift
+//  CharactersDetailsPresenter.swift
 //  Characters-Marvel
 //
-//  Created by Marcelo Pagliarini Buligon on 24/07/20.
+//  Created by Marcelo Pagliarini Buligon on 25/07/20.
 //  Copyright © 2020 Marcelo Pagliarini Buligon. All rights reserved.
 //
 
-protocol CharactersViewCellPresenterDelegate {
+import Foundation
+
+protocol CharactersDetailsPresenterDelegate: AnyObject {
     func setupImage(imageUrl: String)
     func setupTitle(title: String)
     func setupDescription(description: String)
-    func setupFooter()
+    func openURL(_ url: URL)
+    func setNavigationTitle(_ text: String)
 }
 
-final class CharactersViewCellPresenter {
-    private let model: Character
-    private var view: CharactersViewCellPresenterDelegate?
+final class CharactersDetailsPresenter {
+    private weak var view: CharactersDetailsPresenterDelegate?
+    private var model: Character
     
     init(model: Character) {
         self.model = model
     }
     
-    func attachView(_ view: CharactersViewCellPresenterDelegate) {
+    func attachView(_ view: CharactersDetailsPresenterDelegate) {
         self.view = view
-        
-        setCharacterImage()
         setCharacterDescription()
         setCharacterTitle()
+        setCharacterImage()
+        view.setNavigationTitle("")
     }
     
     private func setCharacterDescription() {
+        
         let description = model.description == "" ? Localizable.inAppError.noDescription.rawValue : model.description
         view?.setupDescription(description: description ?? Localizable.inAppError.noDescription.rawValue)
-    }
-    
+       }
+       
     private func setCharacterTitle() {
         let title = model.name == "" ? Localizable.inAppError.noTitle.rawValue : model.name
         view?.setupTitle(title: title ?? Localizable.inAppError.noTitle.rawValue)
@@ -46,5 +50,10 @@ final class CharactersViewCellPresenter {
            imgUrl = path + "/portrait_uncanny" + "." + imgExtension
         }
         view?.setupImage(imageUrl: imgUrl)
+    }
+    
+    func hyperLinkDidTap() {
+        let charactereUrl = model.urls[1]
+        view?.openURL(charactereUrl.url)
     }
 }

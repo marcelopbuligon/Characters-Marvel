@@ -1,43 +1,39 @@
 //
-//  DetailsPresenter.swift
+//  CellPresenter.swift
 //  Characters-Marvel
 //
-//  Created by Marcelo Pagliarini Buligon on 25/07/20.
+//  Created by Marcelo Pagliarini Buligon on 24/07/20.
 //  Copyright © 2020 Marcelo Pagliarini Buligon. All rights reserved.
 //
 
-import Foundation
-
-protocol DetailsPresenterDelegate: AnyObject {
+protocol CharactersViewCellPresenterDelegate {
     func setupImage(imageUrl: String)
     func setupTitle(title: String)
     func setupDescription(description: String)
-    func openURL(_ url: URL)
-    func setNavigationTitle(_ text: String)
+    func setupFooterLabel(text: String)
 }
 
-final class DetailsPresenter {
-    private var view: DetailsPresenterDelegate?
-    private var model: Character
+final class CharactersViewCellPresenter {
+    private let model: Character
+    private var view: CharactersViewCellPresenterDelegate?
     
     init(model: Character) {
         self.model = model
     }
     
-    func attachView(_ view: DetailsPresenterDelegate) {
+    func attachView(_ view: CharactersViewCellPresenterDelegate) {
         self.view = view
+        
+        setCharacterImage()
         setCharacterDescription()
         setCharacterTitle()
-        setCharacterImage()
-        view.setNavigationTitle("")
     }
     
     private func setCharacterDescription() {
-        
         let description = model.description == "" ? Localizable.inAppError.noDescription.rawValue : model.description
         view?.setupDescription(description: description ?? Localizable.inAppError.noDescription.rawValue)
-       }
-       
+    }
+    
     private func setCharacterTitle() {
         let title = model.name == "" ? Localizable.inAppError.noTitle.rawValue : model.name
         view?.setupTitle(title: title ?? Localizable.inAppError.noTitle.rawValue)
@@ -52,8 +48,8 @@ final class DetailsPresenter {
         view?.setupImage(imageUrl: imgUrl)
     }
     
-    func hyperLinkDidTap() {
-        let charactereUrl = model.urls[1]
-        view?.openURL(charactereUrl.url)
+    private func setFooterLabel() {
+        let footerLabel = Localizable.welcomePage.footer.rawValue
+        view?.setupFooterLabel(text: footerLabel)
     }
 }

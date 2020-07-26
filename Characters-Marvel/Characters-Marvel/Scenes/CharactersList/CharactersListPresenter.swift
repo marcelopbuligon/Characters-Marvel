@@ -1,5 +1,5 @@
 //
-//  CharactersPresenter.swift
+//  CharactersListPresenter.swift
 //  Characters-Marvel
 //
 //  Created by Marcelo Pagliarini Buligon on 24/07/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol CharactersPresenterDelegate: AnyObject {
+protocol CharactersListPresenterDelegate: AnyObject {
     func showAlert(message: String, buttonTitle: String, title: String)
     func reloadData()
     func showLoading()
@@ -16,34 +16,30 @@ protocol CharactersPresenterDelegate: AnyObject {
     func setNavigationTitle(_ text: String)
 }
 
-final class CharactersPresenter: NSObject {
+final class CharactersListPresenter: NSObject {
     
     var dataSource: [Character] = []
     
-    weak var view: CharactersPresenterDelegate?
+    private weak var view: CharactersListPresenterDelegate?
     var isFetching: Bool = false
     var isFiltering: Bool = false
     
     private var offset: Int = 0
     private var service: CharactersServiceProtocol
-    private var serchByNameService: SearchByNameServiceProtocol
-    private var router: CharactersRouterProtocol
+    private var router: CharactersListRouterProtocol
     
     init(
         service: CharactersServiceProtocol = CharactersService(),
-        serchByNameService:SearchByNameServiceProtocol = SearchByNameService(),
-        router: CharactersRouterProtocol
+        router: CharactersListRouterProtocol
     ) {
         self.service = service
-        self.serchByNameService = serchByNameService
         self.router = router
         super.init()
         
         self.service.delegate = self
-        self.serchByNameService.delegate = self
     }
     
-    func attachView(_ view: CharactersPresenterDelegate) {
+    func attachView(_ view: CharactersListPresenterDelegate) {
         self.view = view
         view.setNavigationTitle(Localizable.welcomePage.title.rawValue)
         fetchCharacters()
@@ -60,7 +56,7 @@ final class CharactersPresenter: NSObject {
             offset = 0 
             isFiltering = true
             let inputText = text
-            serchByNameService.fetchCharactersByName(query: inputText)
+            service.fetchCharactersByName(query: inputText)
             view?.showLoading()
         } else if characterCount == 0 {
             dataSource.removeAll()
@@ -86,13 +82,13 @@ final class CharactersPresenter: NSObject {
     }
     
     private func fetchCharacters() {
-        service.fetchCharacters(offset: "\(offset)")
+        service.fetchCharactersByOffset(offset: "\(offset)")
         view?.showLoading()
         isFetching = true
     }
 }
 
-extension CharactersPresenter: CharactersServiceDelegate {
+extension CharactersListPresenter: CharactersServiceDelegate {
     func didFindCharacters(_ response: [Character]) {
         
         if !isFiltering {
@@ -101,7 +97,6 @@ extension CharactersPresenter: CharactersServiceDelegate {
         } else {
             dataSource = response
         }
-        
         isFetching = false
         view?.hideLoading()
         view?.reloadData()

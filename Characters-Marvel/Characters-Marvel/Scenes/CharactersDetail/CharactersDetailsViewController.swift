@@ -1,5 +1,5 @@
 //
-//  DetailsViewController.swift
+//  CharactersDetailsViewController.swift
 //  Characters-Marvel
 //
 //  Created by Marcelo Pagliarini Buligon on 25/07/20.
@@ -8,14 +8,14 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController {
+final class CharactersDetailsViewController: UIViewController {
 
     @IBOutlet weak var charactereImage: UIImageView?
     @IBOutlet weak var titleLabel: UILabel?
     @IBOutlet weak var descriptionLabel: UILabel?
     @IBOutlet weak var hyperlinkView: UIImageView?
     
-    private let presenter: DetailsPresenter
+    private let presenter: CharactersDetailsPresenter
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class DetailsViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
-    init(presenter: DetailsPresenter) {
+    init(presenter: CharactersDetailsPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -48,7 +48,7 @@ class DetailsViewController: UIViewController {
     }
 }
 
-extension DetailsViewController: DetailsPresenterDelegate {
+extension CharactersDetailsViewController: CharactersDetailsPresenterDelegate {
     
     func setNavigationTitle(_ text: String) {
         navigationItem.title = text

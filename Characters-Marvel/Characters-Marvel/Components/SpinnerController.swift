@@ -10,15 +10,21 @@ import UIKit
 
 final class SpinnerController: UIViewController {
     
-    let spinner = UIActivityIndicatorView(style: .large)
+    private let spinner = UIActivityIndicatorView(style: .large)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupSpinner()
+        setupConstraints()
+    }
+    
+    func setupSpinner() {
         spinner.translatesAutoresizingMaskIntoConstraints = false
         spinner.startAnimating()
         view.addSubview(spinner)
-        
+    }
+    
+    func setupConstraints() {
         let horizontalConstraint = spinner.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         let verticalConstraint = spinner.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         let widthConstraint = spinner.widthAnchor.constraint(equalToConstant: 100)
