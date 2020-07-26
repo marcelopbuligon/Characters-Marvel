@@ -1,5 +1,5 @@
 //
-//  CharacterModel.swift
+//  Character.swift
 //  Characters-Marvel
 //
 //  Created by Marcelo Pagliarini Buligon on 23/07/20.
@@ -8,12 +8,7 @@
 
 import Foundation
 
-protocol CharactersServiceDelegate: AnyObject {
-    func didFindCharacters(_ response: [Character])
-    func didFail(error:Error)
-}
-
-struct Character: Decodable {
+struct Character: Codable {
     var name: String?
     var thumbnail: ThumbNail?
     var description: String?
@@ -24,7 +19,7 @@ struct Urls: Codable {
     let url: URL
 }
 
-struct ThumbNail: Decodable {
+struct ThumbNail: Codable {
     var path: String?
     var imageExtension: String
     
