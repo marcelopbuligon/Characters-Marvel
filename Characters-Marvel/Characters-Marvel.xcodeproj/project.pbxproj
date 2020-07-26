@@ -94,13 +94,13 @@
 		DE1B7B9A24CA084A00D87719 /* Characters-Marvel */ = {
 			isa = PBXGroup;
 			children = (
+				DE763AFA24CE3C1400CC8C03 /* Utils */,
 				DE1B7BB424CA0B6600D87719 /* API */,
 				DE1B7BB724CA0BCE00D87719 /* Components */,
 				DE1B7BB524CA0B7900D87719 /* Entities */,
 				DE1B7BB624CA0B8C00D87719 /* Extensions */,
 				DE1B7BB324CA0B4900D87719 /* Scenes */,
 				DE1B7BC224CA138900D87719 /* Services */,
-				DE1B7BD524CB826500D87719 /* Localizable.swift */,
 				DE1B7B9B24CA084A00D87719 /* AppDelegate.swift */,
 				DE1B7B9D24CA084A00D87719 /* SceneDelegate.swift */,
 				DE1B7BA424CA084D00D87719 /* Assets.xcassets */,
@@ -142,7 +142,6 @@
 			isa = PBXGroup;
 			children = (
 				DE1B7BB824CA0FAB00D87719 /* UIimageView.swift */,
-				DE763AF824CE2F8400CC8C03 /* AppColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -194,6 +193,15 @@
 				DE23B85824CCF19C0079659F /* CharactersDetailsRouter.swift */,
 			);
 			path = CharactersDetail;
+			sourceTree = "<group>";
+		};
+		DE763AFA24CE3C1400CC8C03 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DE1B7BD524CB826500D87719 /* Localizable.swift */,
+				DE763AF824CE2F8400CC8C03 /* AppColor.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

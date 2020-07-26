@@ -14,6 +14,11 @@ protocol CharactersServiceProtocol: AnyObject {
     func fetchCharactersByOffset(offset: String)
 }
 
+protocol CharactersServiceDelegate: AnyObject {
+    func didFindCharacters(_ response: [Character])
+    func didFail(error:Error)
+}
+
 final class CharactersService: CharactersServiceProtocol {
     
     struct Response: Decodable {
