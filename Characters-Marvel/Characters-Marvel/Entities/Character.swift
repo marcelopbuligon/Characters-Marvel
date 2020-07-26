@@ -17,6 +17,11 @@ struct Character: Decodable {
     var name: String?
     var thumbnail: ThumbNail?
     var description: String?
+    var urls: [Urls]
+}
+
+struct Urls: Codable {
+    let url: URL
 }
 
 struct ThumbNail: Decodable {
