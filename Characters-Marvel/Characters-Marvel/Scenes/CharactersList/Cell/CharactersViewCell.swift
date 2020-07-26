@@ -65,7 +65,7 @@ extension CharactersViewCell: CharactersViewCellPresenterDelegate {
         descriptionLabel?.text = description
     }
     
-    func setupFooter() {
-        footerLabel?.text = Localizable.welcomePage.footer.rawValue
+    func setupFooterLabel(text: String) {
+        footerLabel?.text = text
     }
 }

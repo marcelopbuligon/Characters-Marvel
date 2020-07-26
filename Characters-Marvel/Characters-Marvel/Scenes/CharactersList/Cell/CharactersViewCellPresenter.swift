@@ -10,7 +10,7 @@ protocol CharactersViewCellPresenterDelegate {
     func setupImage(imageUrl: String)
     func setupTitle(title: String)
     func setupDescription(description: String)
-    func setupFooter()
+    func setupFooterLabel(text: String)
 }
 
 final class CharactersViewCellPresenter {
@@ -46,5 +46,10 @@ final class CharactersViewCellPresenter {
            imgUrl = path + "/portrait_uncanny" + "." + imgExtension
         }
         view?.setupImage(imageUrl: imgUrl)
+    }
+    
+    private func setFooterLabel() {
+        let footerLabel = Localizable.welcomePage.footer.rawValue
+        view?.setupFooterLabel(text: footerLabel)
     }
 }
