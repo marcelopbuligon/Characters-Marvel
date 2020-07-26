@@ -10,7 +10,8 @@ import Foundation
 
 protocol CharactersServiceProtocol: AnyObject {
     var delegate: CharactersServiceDelegate? { get set }
-    func fetchCharacters(offset: String)
+    func fetchCharactersByName(query: String)
+    func fetchCharactersByOffset(offset: String)
 }
 
 final class CharactersService: CharactersServiceProtocol {
@@ -31,21 +32,14 @@ final class CharactersService: CharactersServiceProtocol {
         self.apiRequester = apiRequester
     }
     
-    func fetchCharacters(offset: String) {
+    func fetchCharactersByName(query: String) {
         
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = AppURL.base
-        components.path = AppURL.charactersPath
-        components.queryItems = [
-            URLQueryItem(name: "apikey", value: AppKeys.publicKey),
-            URLQueryItem(name: "hash", value: AppKeys.hash),
-            URLQueryItem(name: "ts", value: AppKeys.timeStamp),
-            URLQueryItem(name: "limit", value: "10"),
-            URLQueryItem(name: "offset", value: offset)
-        ]
-        
-        guard let urlString = components.url?.absoluteString else { return }
+        var urlComponent = makeBaseUrl()
+        urlComponent.queryItems?.append(
+            URLQueryItem(name: "nameStartsWith", value: query)
+        )
+    
+        guard let urlString = urlComponent.url?.absoluteString else { return }
         
         apiRequester.request(
             urlString: urlString,
@@ -56,5 +50,40 @@ final class CharactersService: CharactersServiceProtocol {
         }) { [delegate] (error) in
             delegate?.didFail(error: error)
         }
+    }
+    
+    func fetchCharactersByOffset(offset: String) {
+        
+        var urlComponent = makeBaseUrl()
+        urlComponent.queryItems?.append(contentsOf: [
+            URLQueryItem(name: "limit", value: "10"),
+            URLQueryItem(name: "offset", value: offset)
+        ])
+
+        guard let urlString = urlComponent.url?.absoluteString else { return }
+        
+        apiRequester.request(
+            urlString: urlString,
+            method: .get,
+            parameters: nil,
+            success: { [weak self] (response: Response) in
+                self?.delegate?.didFindCharacters(response.data?.results ?? [])
+        }) { [delegate] (error) in
+            delegate?.didFail(error: error)
+        }
+    }
+    
+    private func makeBaseUrl() -> URLComponents {
+
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = AppURL.base
+        components.path = AppURL.charactersPath
+        components.queryItems = [
+            URLQueryItem(name: "apikey", value: AppKeys.publicKey),
+            URLQueryItem(name: "hash", value: AppKeys.hash),
+            URLQueryItem(name: "ts", value: AppKeys.timeStamp)
+        ]
+        return components
     }
 }
