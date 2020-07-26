@@ -1,5 +1,5 @@
 //
-//  DetailsPresenter.swift
+//  CharactersDetailsPresenter.swift
 //  Characters-Marvel
 //
 //  Created by Marcelo Pagliarini Buligon on 25/07/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DetailsPresenterDelegate: AnyObject {
+protocol CharactersDetailsPresenterDelegate: AnyObject {
     func setupImage(imageUrl: String)
     func setupTitle(title: String)
     func setupDescription(description: String)
@@ -16,15 +16,15 @@ protocol DetailsPresenterDelegate: AnyObject {
     func setNavigationTitle(_ text: String)
 }
 
-final class DetailsPresenter {
-    private var view: DetailsPresenterDelegate?
+final class CharactersDetailsPresenter {
+    private weak var view: CharactersDetailsPresenterDelegate?
     private var model: Character
     
     init(model: Character) {
         self.model = model
     }
     
-    func attachView(_ view: DetailsPresenterDelegate) {
+    func attachView(_ view: CharactersDetailsPresenterDelegate) {
         self.view = view
         setCharacterDescription()
         setCharacterTitle()

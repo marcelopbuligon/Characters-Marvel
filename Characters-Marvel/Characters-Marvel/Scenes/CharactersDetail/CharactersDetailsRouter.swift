@@ -1,5 +1,5 @@
 //
-//  DetailsRouter.swift
+//  CharactersDetailsRouter.swift
 //  Characters-Marvel
 //
 //  Created by Marcelo Pagliarini Buligon on 25/07/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class DetailsRouter: Routerable {
+final class CharactersDetailsRouter: Routerable {
     private var navigation: UINavigationController
     private var model: Character
 
@@ -19,8 +19,8 @@ final class DetailsRouter: Routerable {
     }
 
     func makeViewController() -> UIViewController {
-        let presenter = DetailsPresenter(model: model)
-        let viewController = DetailsViewController(presenter: presenter)
+        let presenter = CharactersDetailsPresenter(model: model)
+        let viewController = CharactersDetailsViewController(presenter: presenter)
         return viewController
     }
 }

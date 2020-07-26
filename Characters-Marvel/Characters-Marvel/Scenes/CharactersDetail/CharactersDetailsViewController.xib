@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="Characters_Marvel" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CharactersDetailsViewController" customModule="Characters_Marvel" customModuleProvider="target">
             <connections>
                 <outlet property="charactereImage" destination="Kqt-eJ-piv" id="ykG-Kn-xKR"/>
                 <outlet property="descriptionLabel" destination="jrr-73-wTS" id="t93-1u-kqf"/>
@@ -52,7 +52,7 @@
                                 </button>
                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="link" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Vhw-iD-kSb">
                                     <rect key="frame" x="335" y="589" width="24" height="25"/>
-                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="24" id="Wnh-tw-Gww"/>
                                         <constraint firstAttribute="height" constant="24" id="haU-Tt-caG"/>
