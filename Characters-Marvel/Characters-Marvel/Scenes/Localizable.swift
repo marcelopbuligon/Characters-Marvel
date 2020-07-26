@@ -15,9 +15,10 @@ enum Localizable {
     }
     enum inAppError: String {
         case title = "Error"
-        case button = "Try Again"
+        case tryButton = "Try Again"
+        case cancelButton = "Cancel"
         case generic = "Oops! An error has occurred"
         case noTitle = "No Title Available"
-        case noDescription = "There is no description for this character yet."
+        case noDescription = "There is no description for this character yet!"
     }
 }

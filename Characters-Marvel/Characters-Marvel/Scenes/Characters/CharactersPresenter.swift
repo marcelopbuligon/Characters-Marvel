@@ -22,16 +22,21 @@ final class CharactersPresenter: NSObject {
     
     weak var view: CharactersPresenterDelegate?
     var isFetching: Bool = false
+    var isFiltering: Bool = false
+    
     private var offset: Int = 0
     private var service: CharactersServiceProtocol
     private var serchByNameService: SearchByNameServiceProtocol
-
+    private var router: CharactersRouterProtocol
+    
     init(
         service: CharactersServiceProtocol = CharactersService(),
-        serchByNameService:SearchByNameServiceProtocol = SearchByNameService()
+        serchByNameService:SearchByNameServiceProtocol = SearchByNameService(),
+        router: CharactersRouterProtocol
     ) {
         self.service = service
         self.serchByNameService = serchByNameService
+        self.router = router
         super.init()
         
         self.service.delegate = self
@@ -44,14 +49,23 @@ final class CharactersPresenter: NSObject {
         fetchCharacters()
     }
     
+    func tryAgainButtonDidTap() {
+        clearTableView()
+        fetchCharacters()
+    }
+    
     func inputTextDidChange(_ text: String) {
         let characterCount = text.count
         if characterCount  > 1 {
+            offset = 0 
+            isFiltering = true
             let inputText = text
             serchByNameService.fetchCharactersByName(query: inputText)
             view?.showLoading()
         } else if characterCount == 0 {
-            self.fetchCharacters()
+            dataSource.removeAll()
+            view?.reloadData()
+            isFiltering = false
         } else {
             clearTableView()
         }
@@ -59,6 +73,7 @@ final class CharactersPresenter: NSObject {
     
     func rowDidTap(_ row: Int) {
         let model = dataSource[row]
+        router.navigateToDetailsScene(model: model)
     }
     
     func userDidRequestedMoreCharacters() {
@@ -74,16 +89,22 @@ final class CharactersPresenter: NSObject {
         service.fetchCharacters(offset: "\(offset)")
         view?.showLoading()
         isFetching = true
-        offset += 3
     }
 }
 
 extension CharactersPresenter: CharactersServiceDelegate {
     func didFindCharacters(_ response: [Character]) {
-         dataSource = response
-         isFetching = false
-         view?.hideLoading()
-         view?.reloadData()
+        
+        if !isFiltering {
+            offset += 10
+        response.forEach { dataSource.append($0) }
+        } else {
+            dataSource = response
+        }
+        
+        isFetching = false
+        view?.hideLoading()
+        view?.reloadData()
     }
     
     func didFail(error: Error) {
@@ -91,7 +112,7 @@ extension CharactersPresenter: CharactersServiceDelegate {
         isFetching = false
         view?.showAlert(
             message: Localizable.inAppError.generic.rawValue,
-            buttonTitle: Localizable.inAppError.button.rawValue,
+            buttonTitle: Localizable.inAppError.tryButton.rawValue,
             title: Localizable.inAppError.title.rawValue
         )
     }

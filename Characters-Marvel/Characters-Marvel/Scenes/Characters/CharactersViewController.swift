@@ -35,6 +35,7 @@ class CharactersViewController: UIViewController {
     
     private func setupNavigationBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     private func setupSearchBar() {
@@ -85,7 +86,9 @@ extension CharactersViewController: UIScrollViewDelegate {
         
         let offsetY = scrollView.contentOffset.y
         let contentHeight = scrollView.contentSize.height
-        if offsetY / contentHeight > 0.6 && !presenter.isFetching {
+        let distanceToBottom = contentHeight - offsetY
+        
+        if distanceToBottom < tableView?.frame.height ?? 0 && !presenter.isFetching && !presenter.isFiltering {
             presenter.userDidRequestedMoreCharacters()
         }
     }    
@@ -93,7 +96,28 @@ extension CharactersViewController: UIScrollViewDelegate {
 
 extension CharactersViewController: CharactersPresenterDelegate {
     func showAlert(message: String, buttonTitle: String, title: String) {
+        let dialogMessage = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        let cancelButton = UIAlertAction(
+            title: Localizable.inAppError.cancelButton.rawValue,
+            style: .cancel,
+            handler: nil)
         
+        let tryAgainButton = UIAlertAction(
+            title: buttonTitle,
+            style: .default,
+            handler: { [weak self] _ -> Void in
+                self?.presenter.tryAgainButtonDidTap()
+        })
+        dialogMessage.addAction(cancelButton)
+        dialogMessage.addAction(tryAgainButton)
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.present(dialogMessage, animated: true, completion: nil)
+        }
     }
     
     func reloadData() {
