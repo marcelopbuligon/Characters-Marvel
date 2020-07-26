@@ -21,7 +21,7 @@
 		DE1B7BC424CA13AF00D87719 /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC324CA13AF00D87719 /* CharactersService.swift */; };
 		DE1B7BC624CA144800D87719 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC524CA144800D87719 /* Character.swift */; };
 		DE1B7BCA24CB55AE00D87719 /* CharactersListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BC924CB55AE00D87719 /* CharactersListPresenter.swift */; };
-		DE1B7BCC24CB633800D87719 /* CharactersRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BCB24CB633800D87719 /* CharactersRouter.swift */; };
+		DE1B7BCC24CB633800D87719 /* CharactersListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BCB24CB633800D87719 /* CharactersListRouter.swift */; };
 		DE1B7BD024CB678900D87719 /* CharactersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BCE24CB678900D87719 /* CharactersViewCell.swift */; };
 		DE1B7BD124CB678900D87719 /* CharactersViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE1B7BCF24CB678900D87719 /* CharactersViewCell.xib */; };
 		DE1B7BD424CB6C9500D87719 /* CharactersViewCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1B7BD324CB6C9500D87719 /* CharactersViewCellPresenter.swift */; };
@@ -51,7 +51,7 @@
 		DE1B7BC324CA13AF00D87719 /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
 		DE1B7BC524CA144800D87719 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		DE1B7BC924CB55AE00D87719 /* CharactersListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPresenter.swift; sourceTree = "<group>"; };
-		DE1B7BCB24CB633800D87719 /* CharactersRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersRouter.swift; sourceTree = "<group>"; };
+		DE1B7BCB24CB633800D87719 /* CharactersListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListRouter.swift; sourceTree = "<group>"; };
 		DE1B7BCE24CB678900D87719 /* CharactersViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewCell.swift; sourceTree = "<group>"; };
 		DE1B7BCF24CB678900D87719 /* CharactersViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharactersViewCell.xib; sourceTree = "<group>"; };
 		DE1B7BD324CB6C9500D87719 /* CharactersViewCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewCellPresenter.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 				DE1B7BC924CB55AE00D87719 /* CharactersListPresenter.swift */,
 				DE1B7BAF24CA089300D87719 /* CharactersListViewController.swift */,
 				DE1B7BB024CA089300D87719 /* CharactersListViewController.xib */,
-				DE1B7BCB24CB633800D87719 /* CharactersRouter.swift */,
+				DE1B7BCB24CB633800D87719 /* CharactersListRouter.swift */,
 			);
 			path = CharactersList;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 				DE23B85624CCF0FA0079659F /* CharactersDetailsViewController.swift in Sources */,
 				DE1B7BD624CB826500D87719 /* Localizable.swift in Sources */,
 				DE1B7BC424CA13AF00D87719 /* CharactersService.swift in Sources */,
-				DE1B7BCC24CB633800D87719 /* CharactersRouter.swift in Sources */,
+				DE1B7BCC24CB633800D87719 /* CharactersListRouter.swift in Sources */,
 				DE1B7BB124CA089300D87719 /* CharactersListViewController.swift in Sources */,
 				DE23B85224CCF0D60079659F /* CharactersDetailsPresenter.swift in Sources */,
 			);

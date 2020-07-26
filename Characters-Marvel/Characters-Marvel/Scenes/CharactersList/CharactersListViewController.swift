@@ -1,5 +1,5 @@
 //
-//  CharactersViewController.swift
+//  CharactersListViewController.swift
 //  Characters-Marvel
 //
 //  Created by Marcelo Pagliarini Buligon on 23/07/20.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-class CharactersViewController: UIViewController {
+final class CharactersListViewController: UIViewController {
     
     @IBOutlet private weak var tableView: UITableView?
     
-    private let presenter: CharactersPresenter
+    private let presenter: CharactersListPresenter
     private let searchController = UISearchController(searchResultsController: nil)
     private let spinner = SpinnerController()
     
-    init(presenter: CharactersPresenter) {
+    init(presenter: CharactersListPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -54,14 +54,14 @@ class CharactersViewController: UIViewController {
     }
 }
 
-extension CharactersViewController: UISearchResultsUpdating {
+extension CharactersListViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         guard let inputTextByUser = searchController.searchBar.text else { return }
         presenter.inputTextDidChange(inputTextByUser)
     }
 }
 
-extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
+extension CharactersListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter.dataSource.count
@@ -80,7 +80,7 @@ extension CharactersViewController: UITableViewDataSource, UITableViewDelegate {
     }
 }
 
-extension CharactersViewController: UIScrollViewDelegate {
+extension CharactersListViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
@@ -94,7 +94,7 @@ extension CharactersViewController: UIScrollViewDelegate {
     }    
 }
 
-extension CharactersViewController: CharactersPresenterDelegate {
+extension CharactersListViewController: CharactersListPresenterDelegate {
     func showAlert(message: String, buttonTitle: String, title: String) {
         let dialogMessage = UIAlertController(
             title: title,

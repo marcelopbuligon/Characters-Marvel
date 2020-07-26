@@ -12,11 +12,11 @@ protocol Routerable {
     func makeViewController() -> UIViewController
 }
 
-protocol CharactersRouterProtocol: AnyObject {
+protocol CharactersListRouterProtocol: AnyObject {
     func navigateToDetailsScene(model: Character)
 }
 
-final class CharactersRouter: Routerable {
+final class CharactersListRouter: Routerable {
     private var navigation: UINavigationController
     
     init(navigation: UINavigationController) {
@@ -24,18 +24,17 @@ final class CharactersRouter: Routerable {
     }
     
     func makeViewController() -> UIViewController {
-        let presenter = CharactersPresenter(router: self)
-        let viewController = CharactersViewController(presenter: presenter)
+        let presenter = CharactersListPresenter(router: self)
+        let viewController = CharactersListViewController(presenter: presenter)
         return viewController
     }
 }
 
-extension CharactersRouter: CharactersRouterProtocol {
+extension CharactersListRouter: CharactersListRouterProtocol {
     func navigateToDetailsScene(model: Character) {
         
-        let router = DetailsRouter(navigation: navigation, model: model)
+        let router = CharactersDetailsRouter(navigation: navigation, model: model)
          let vc = router.makeViewController()
         navigation.present(vc, animated: true, completion: nil)
-//         navigation.pushViewController(vc, animated: true)
     }
 }
