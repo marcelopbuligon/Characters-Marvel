@@ -41,7 +41,7 @@ final class CharactersService: CharactersServiceProtocol {
             URLQueryItem(name: "apikey", value: AppKeys.publicKey),
             URLQueryItem(name: "hash", value: AppKeys.hash),
             URLQueryItem(name: "ts", value: AppKeys.timeStamp),
-            URLQueryItem(name: "limit", value: "20"),
+            URLQueryItem(name: "limit", value: "10"),
             URLQueryItem(name: "offset", value: offset)
         ]
         
