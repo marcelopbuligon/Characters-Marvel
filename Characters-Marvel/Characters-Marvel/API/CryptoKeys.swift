@@ -10,8 +10,8 @@ import CryptoKit
 import Foundation
 
 enum AppKeys {
-    static let publicKey = "20094465bc99cbd5b34ba9af069491ea"
-    static let privateKey = "0513170297373b3075e4e87f4b56076995b25ab1"
+    static let publicKey = ""
+    static let privateKey = ""
     static let timeStamp = String(NSDate().timeIntervalSince1970.description)
     
     static var hash: String {
